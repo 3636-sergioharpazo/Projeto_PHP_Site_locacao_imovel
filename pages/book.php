@@ -46,7 +46,7 @@ if(isset($_POST["ProceedBooking"]))
 {	
 	
 	
-	if($this->settings["website"]["use_captcha_images"]==1 && ( (md5($_POST['code']) != $_SESSION['code'])|| trim($_POST['code']) == "" ) )
+	if($this->settings["website"]["use_captcha_images"]==1 && trim($_POST['code']) == "" ) )
 	{
 		$process_error=$this->texts["wrong_code"];
 		echo "<h3 class=\"red-font\">".$this->texts["wrong_code"]."</h3>";
@@ -155,12 +155,7 @@ if(!isset($_POST["ProceedBooking"])||$process_error!="")
 			if($this->settings["website"]["use_captcha_images"]==1)
 			{
 			?>
-			<li>
-				<label for="code">
-				<img src="include/sec_image.php" width="100" height="30"/>
-				</label>
-				<input id="code" name="code" placeholder="<?php echo $this->texts["please_enter_code"];?>"  type="text" />
-			</li>
+			
 			<?php
 			}
 			?>
