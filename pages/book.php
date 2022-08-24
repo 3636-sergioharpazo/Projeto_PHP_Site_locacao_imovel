@@ -155,12 +155,6 @@ if(!isset($_POST["ProceedBooking"])||$process_error!="")
 			if($this->settings["website"]["use_captcha_images"]==1)
 			{
 			?>
-			<li>
-				<label for="code">
-				<img src="include/sec_image.php" width="100" height="30"/>
-				</label>
-				<input id="code" name="code" placeholder="<?php echo $this->texts["please_enter_code"];?>" type="text" required/>
-			</li>
 			<?php
 			}
 			?>
