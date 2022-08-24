@@ -60,7 +60,7 @@ if(isset($_POST["ProceedBooking"]))
 			//Saving the booking information in the XML file
 			$bookings = simplexml_load_file($this->booking_file);
 			$booking = $bookings->addChild('booking');
-			//$booking->addChild('code', $this->get_random_code());
+			$booking->addChild('code', $this->get_random_code());
 			$booking->addChild('name', stripslashes($_POST["name"]));
 			$booking->addChild('email', stripslashes($_POST["email"]));
 			$booking->addChild('phone', stripslashes($_POST["phone"]));
@@ -155,12 +155,12 @@ if(!isset($_POST["ProceedBooking"])||$process_error!="")
 			if($this->settings["website"]["use_captcha_images"]==1)
 			{
 			?>
-<!--<li>
+			<li>
 				<label for="code">
 				<img src="include/sec_image.php" width="100" height="30"/>
 				</label>
-				<input id="code" name="code" placeholder="<?php echo //$this->texts["please_enter_code"];?>" type="text" />
-			</li>-->
+				<input id="code" name="code" placeholder="<?php echo $this->texts["please_enter_code"];?>"  type="text" />
+			</li>
 			<?php
 			}
 			?>
