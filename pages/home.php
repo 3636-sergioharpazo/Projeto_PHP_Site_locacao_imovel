@@ -108,13 +108,13 @@ function ValidateForm(form)
 <script src="js/jquery.datetimepicker.full.min.js"></script>
 <script>
 $('#start_time').datetimepicker({
-	format:"m/d/Y",
+	format:"d/m/Y",
 	formatTime:"",
     timepicker:0
 }
 );
 $('#end_time').datetimepicker({
-	format:"m/d/Y",
+	format:"d/m/Y",
 	formatTime:"",
     timepicker:0
 });
