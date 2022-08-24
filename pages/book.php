@@ -46,11 +46,6 @@ if(isset($_POST["ProceedBooking"]))
 {	
 	
 	
-	if($this->settings["website"]["use_captcha_images"]==1 && trim($_POST['code']) == "" ) 
-	{
-		$process_error=$this->texts["wrong_code"];
-		echo "<h3 class=\"red-font\">".$this->texts["wrong_code"]."</h3>";
-	}
 	
 	
 	if($process_error=="")
