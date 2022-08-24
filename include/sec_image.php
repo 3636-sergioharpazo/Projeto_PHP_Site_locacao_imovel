@@ -1,6 +1,4 @@
 <?php
- 
-?><?php
    require('security_image.php');
    
    session_start();
