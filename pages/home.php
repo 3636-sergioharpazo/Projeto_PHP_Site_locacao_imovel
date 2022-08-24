@@ -70,7 +70,7 @@ function ValidateForm(form)
 				<strong><?php echo $this->texts["check_in_date"];?></strong>
 				<br/>
 					<div class="input-group">
-					<input required autocomplete="off" id="start_time" type="text" class="form-control" name="start_time">
+					<input required autocomplete="off" placeholder="Selecione data de entrada" id="start_time" type="text" class="form-control" name="start_time">
 					<span class="input-group-addon"><img src="images/calendar.png"/></span>
 					
 				  </div>
@@ -82,7 +82,7 @@ function ValidateForm(form)
 				<strong><?php echo $this->texts["check_out_date"];?></strong>
 				<br/>
 					<div class="input-group">
-					<input required autocomplete="off" id="end_time" type="text" class="form-control" name="end_time">
+					<input required autocomplete="off" id="end_time" type="text" placeholder="Selecione data de saída" class="form-control" name="end_time">
 					<span class="input-group-addon"><img src="images/calendar.png"/></span>
 					
 				  </div>
