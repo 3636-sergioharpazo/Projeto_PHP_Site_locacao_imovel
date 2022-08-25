@@ -7,14 +7,14 @@
 ?><?php
 class SiteManager
 {
-	public $lang="pt-BR";
+	public $lang="en";
 	
 	public $page="home";
 	public $data_file = "data/rooms.xml";
 	public $booking_file = "data/bookings.xml";
 	public $arrPages = array();
 	public $domain = "";
-	public $multi_language = true;
+	public $multi_language = false;
 	private $db;
 	public $running_mode=1;
 
