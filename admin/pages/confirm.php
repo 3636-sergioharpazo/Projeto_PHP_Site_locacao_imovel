@@ -20,19 +20,8 @@ foreach($xml->children() as $child)
 		break;
 	}
 }
-
 if(isset($_POST["proceed_confirm"]))
 {
-	$xml->booking[$_REQUEST["id"]]->status=1;
-	$xml->asXML($this->booking_file); 
-	echo "<h3>".$this->texts["booking_status_confirmed"]."</h3>";
-
-	$headers  = "From: \"".strip_tags(stripslashes($this->settings["website"]["admin_email"]))."\"<".strip_tags(stripslashes($this->settings["website"]["admin_email"])).">\n";
-	$headers .= "MIME-Version: 1.0\r\n";
-	$headers .= "Date: ".date("r")."\r\n";
-	$headers .= "Message-ID: <".time()."@booking>\r\n";
-	$headers .= "Content-Type: text/plain; charset=utf-8\r\n";
-	
 
 	$nome = "Cliente";
 	$email =$this->settings["website"]["admin_email"];
@@ -51,6 +40,37 @@ if(isset($_POST["proceed_confirm"]))
    
    //$mail->addStringAttachment($pdfdoc, 'certificado.pdf');
    $mail->Send();
+   
+
+	
+
+   }	?>
+   <h3><?php echo $this->texts["message_sent_success"];?></h3>
+
+   <?php
+}
+else
+{
+   ?>
+   <h3 class="red-font"><?php echo $this->texts["error_while_sending"];?></h3>
+
+   <?php	
+}
+}
+
+if(isset($_POST["proceed_confirm"]))
+{
+	$xml->booking[$_REQUEST["id"]]->status=1;
+	$xml->asXML($this->booking_file); 
+	echo "<h3>".$this->texts["booking_status_confirmed"]."</h3>";
+
+	$headers  = "From: \"".strip_tags(stripslashes($this->settings["website"]["admin_email"]))."\"<".strip_tags(stripslashes($this->settings["website"]["admin_email"])).">\n";
+	$headers .= "MIME-Version: 1.0\r\n";
+	$headers .= "Date: ".date("r")."\r\n";
+	$headers .= "Message-ID: <".time()."@booking>\r\n";
+	$headers .= "Content-Type: text/plain; charset=utf-8\r\n";
+	
+
    
 
 	
