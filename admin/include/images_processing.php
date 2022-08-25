@@ -9,7 +9,7 @@ if(isset($_POST["list_images"])&&$_POST["list_images"]!="")
 	$list_files=explode(",",$_POST["list_images"]);
 	for($i=0;$i<sizeof($list_files);++$i)
 	{
-		$file_name="../uploads/".$list_files[$i];
+		$file_name="./uploads/".$list_files[$i];
 		if(!file_exists($file_name)) continue;
 		
 		$size	= getimagesize($file_name);
@@ -81,7 +81,7 @@ if(isset($files))
 		
 		$i_random=rand(200,100000000);
 
-		$save_file_name = (isset($path)?$path:"")."../uploaded_images/" .$i_random.".jpg";
+		$save_file_name = (isset($path)?$path:"")."./uploaded_images/" .$i_random.".jpg";
 	
 		$uploaded_file = $file['tmp_name'];
 		
