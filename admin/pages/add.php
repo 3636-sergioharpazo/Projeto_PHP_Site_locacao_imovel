@@ -141,7 +141,7 @@ if(!defined('IN_SCRIPT')) die("");
 										$(document).ready(function()
 										{
 										var settings = {
-											url: "./upload.php",
+											url: "upload.php",
 											dragDrop:true,
 											fileName: "myfile",
 											maxFileCount:25,
