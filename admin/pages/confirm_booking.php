@@ -7,6 +7,7 @@
 // Released under the MIT license
 ?><?php
 if(!defined('IN_SCRIPT')) die("");
+require('class.phpmailer.php');
 
 if(!isset($_REQUEST["id"])||!is_numeric($_REQUEST["id"]))
 {
