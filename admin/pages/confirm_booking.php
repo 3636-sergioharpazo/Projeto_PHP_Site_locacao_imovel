@@ -36,11 +36,26 @@ if(!isset($booking->code)) die("No booking found with this code!");
 <?php
 if(isset($_POST["proceed_confirm"]))
 {
-	$msg1 = $_POST["message"];
+
+	$message_text=$this->texts["booking_confirmation_message"];
+	$message_text=str_replace("{NAME}",$booking->name,$message_text);
+	
+	$number_nights=(intval($booking->end_time)-intval($booking->start_time))/86400;
+	$booking_details=$number_nights." ".$this->texts["nights"]." (".
+	date($this->settings["website"]["date_format"],intval($booking->start_time))." ".
+	" - ".date($this->settings["website"]["date_format"],intval($booking->end_time)).") ";
+	
+	$message_text=str_replace("{BOOKING_DETAILS}",$booking_details,$message_text);
+	$message_text=str_replace("{BOOKING_CODE}",$booking->code,$message_text);
+	
+
+
+
+	$msg1 = $message_text;
 ?>
 <script>
 
-	document.location.href="https://api.whatsapp.com/send?phone=5588988423386&text={$msg1}"
+	document.location.href="https://api.whatsapp.com/send?phone=5588988423386&text=$msg1"
 	
 </script>
 <?php
