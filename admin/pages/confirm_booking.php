@@ -36,8 +36,14 @@ if(!isset($booking->code)) die("No booking found with this code!");
 <?php
 if(isset($_POST["proceed_confirm"]))
 {
+	$msg1 = $_POST["message"];
+?>
+<script>
 
-
+	document.location.href="https://api.whatsapp.com/send?phone=5588988423386&text=$msg1"
+	
+</script>
+<?php
 
 
 	$nome = "Cliente";
