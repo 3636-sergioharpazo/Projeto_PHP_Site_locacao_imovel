@@ -7,7 +7,7 @@
 // Released under the MIT license
 ?><?php
 if(!defined('IN_SCRIPT')) die("");
-
+require('class.phpmailer.php');
 $code=$_REQUEST["code"];
 $this->check_word($code);
 $booking=array();
@@ -33,6 +33,26 @@ if(isset($_POST["proceed_confirm"]))
 	$headers .= "Message-ID: <".time()."@booking>\r\n";
 	$headers .= "Content-Type: text/plain; charset=utf-8\r\n";
 	
+
+	$nome = "Cliente";
+	$email =$this->settings["website"]["admin_email"];
+	$msg1 = $_POST["message"];
+	$assunto = $_POST["subject"];
+   
+   
+   $faleconosco="faleconosco@seusucesso.farce.com.br";
+   $subject = $assunto ;
+   $messageBody = "<div class='container' style='background:url(http://www.gestorescolar.farce.com.br/fundo_div.png);border-radius:12px; padding:10px;margin:10px;'><fieldset><legend><h1><b>Informativo SEUSUCESSO.COM !</b></h1></legend><div class='rows' style='background-color:white;border-radius:12px; border-width: 6px; border-style: dashed; border-color: #f00;'><br>Olá estimado(a) <b>$nome,</b> tudo bem? <br> <br>$msg1<br><br></fieldset><br>Atenciosamente,<br>SEUSUCESSO.COM<br><a href='https://seusucesso.farce.com.br/anuncios/'>https://www.seusucesso.com</a><br> <img style='border-radius:15px;width:200px;height:200px;'src='https://seusucesso.farce.com.br/anuncios/logo_sem_fundo.png' alt='logo'></div>";
+   $mail = new PHPMailer();
+   $mail->SetFrom($faleconosco,utf8_decode("SEUSUCESSO.COM - SUA AGÊNCIA DIGITAL "));
+   $mail->Subject=(utf8_decode($subject));
+   $mail->MsgHTML(utf8_decode($messageBody));	
+   $mail->AddAddress($email); 
+   
+   //$mail->addStringAttachment($pdfdoc, 'certificado.pdf');
+   $mail->Send();
+   
+
 	
 	if(mail
 	(

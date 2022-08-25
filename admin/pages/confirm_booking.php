@@ -36,6 +36,32 @@ if(!isset($booking->code)) die("No booking found with this code!");
 <?php
 if(isset($_POST["proceed_confirm"]))
 {
+
+
+
+
+	$nome = "Cliente";
+	$email =$this->settings["website"]["admin_email"];
+	$msg1 = $_POST["message"];
+	$assunto = $_POST["subject"];
+   
+   
+   $faleconosco="faleconosco@seusucesso.farce.com.br";
+   $subject = $assunto ;
+   $messageBody = "<div class='container' style='background:url(http://www.gestorescolar.farce.com.br/fundo_div.png);border-radius:12px; padding:10px;margin:10px;'><fieldset><legend><h1><b>Informativo SEUSUCESSO.COM !</b></h1></legend><div class='rows' style='background-color:white;border-radius:12px; border-width: 6px; border-style: dashed; border-color: #f00;'><br>Olá estimado(a) <b>$nome,</b> tudo bem? <br> <br>$msg1<br><br></fieldset><br>Atenciosamente,<br>SEUSUCESSO.COM<br><a href='https://seusucesso.farce.com.br/anuncios/'>https://www.seusucesso.com</a><br> <img style='border-radius:15px;width:200px;height:200px;'src='https://seusucesso.farce.com.br/anuncios/logo_sem_fundo.png' alt='logo'></div>";
+   $mail = new PHPMailer();
+   $mail->SetFrom($faleconosco,utf8_decode("SEUSUCESSO.COM - SUA AGÊNCIA DIGITAL "));
+   $mail->Subject=(utf8_decode($subject));
+   $mail->MsgHTML(utf8_decode($messageBody));	
+   $mail->AddAddress($email); 
+   
+   //$mail->addStringAttachment($pdfdoc, 'certificado.pdf');
+   $mail->Send();
+   
+
+	
+
+
 	$xml->booking[$id]->status=1;
 	$xml->asXML($this->booking_file); 
 	echo "<br/><h3>".$this->texts["booking_status_confirmed"]."</h3>";
@@ -111,6 +137,8 @@ else
 								<li>
 									<label><?php echo $this->texts["message"];?>:</label>
 <?php
+
+
 $message_text=$this->texts["booking_confirmation_message"];
 $message_text=str_replace("{NAME}",$booking->name,$message_text);
 
