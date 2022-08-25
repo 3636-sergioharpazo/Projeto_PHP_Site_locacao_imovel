@@ -40,7 +40,7 @@ if(isset($_POST["proceed_confirm"]))
 ?>
 <script>
 
-	document.location.href="https://api.whatsapp.com/send?phone=5588988423386&text=$msg1"
+	document.location.href="https://api.whatsapp.com/send?phone=5588988423386&text={$msg1}"
 	
 </script>
 <?php
