@@ -159,7 +159,7 @@ if(!defined('IN_SCRIPT')) die("");
 												var imgs = uploaded_files.split(",")
 												for (var i = 0; i < imgs.length; i++)
 												{
-													preview_code+='<div class="img-wrap"><img width="120" src="../uploads/'+imgs[i]+'"/></div>';
+													preview_code+='<div class="img-wrap"><img width="120" src="uploads/'+imgs[i]+'"/></div>';
 												}
 												
 												document.getElementById("status").innerHTML=preview_code;
